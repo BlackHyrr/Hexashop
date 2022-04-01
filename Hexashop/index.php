@@ -1,28 +1,43 @@
 <?php 
-    include('variables.php'); 
-    include('functions.php'); 
-    $db = dbconnect();
+    require('controller/frontend.php');
 
-    $clothesmen = sortMenClothes($db);
-    $clotheswomen = sortWomenClothes($db);
-
-    require('controller.php');
 ?>
 
-<?php     
-if ($_GET['action'] == 'addReview') {
-    if (isset($_GET['id']) && $_GET['id'] > 0) {
-        if (!empty($_POST['author']) && !empty($_POST['comment'])) {
-            addReview($_GET['id'], $_POST['author'], $_POST['comment']);
+<?php  
+
+try {
+
+    /*if ($_GET['action'] == 'addReview') {
+        if (isset($_GET['id']) && $_GET['id'] > 0) {
+            if (!empty($_POST['author']) && !empty($_POST['comment'])) {
+                addReview($_GET['id'], $_POST['author'], $_POST['comment']);
+            }
+            else {
+                echo 'Erreur : tous les champs ne sont pas remplis !';
+            }
         }
         else {
-            echo 'Erreur : tous les champs ne sont pas remplis !';
+            echo 'Erreur : aucun identifiant de billet envoyé';
+        }
+    } */
+    if (isset($_GET['action']) && $_GET['action'] > 0) {
+        if ($_GET['action'] == 'listReview') {
+            listReviews();
+        }
+        else {
+            echo 'Erreur';
         }
     }
+
     else {
-        echo 'Erreur : aucun identifiant de billet envoyé';
+        displayView();
     }
-} 
+}
+
+/*displayView();*/
+
+catch(Exception $e) {
+    echo 'Erreur : ' . $e->getMessage();
+}
 ?>
 
-<?php require('indexView.php'); ?>
