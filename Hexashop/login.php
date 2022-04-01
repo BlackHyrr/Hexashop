@@ -1,7 +1,6 @@
 <?php
     include('variables.php'); 
     include('functions.php'); 
-    $db = dbconnect();
 ?>
 
 <!DOCTYPE html>

@@ -3,7 +3,6 @@
 
 <?php 
 
-while ($data = $affectedLines->fetch())
 ob_start() ?>
 
 <nav id="navbar">
@@ -668,7 +667,7 @@ ob_start() ?>
             <a href="index.php"><span>Homepage</span></a>
             <a href=""><span>Abous Us</span></a>
             <a href="login.php"><span>Login</span></a>
-            <a href="review.php"><span>Review</span></a>
+            <a href="index.php?action=listReview"><span>Review</span></a>
         </div>
         <div class="footer-content">
             <h4>Helps & Information</h4>
